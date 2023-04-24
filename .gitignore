@@ -1,0 +1,5 @@
+# Remove all node module files
+node_modules
+
+# Remove ENV files
+.env
