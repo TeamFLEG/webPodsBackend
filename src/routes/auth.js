@@ -5,8 +5,8 @@ const express = require("express");
 const router = express.Router();
 
 // Import the login and register middleware functions
-const { login, register, authenticateUser } = require("../middlewares/auth");
-const { googleAuth, getURL } = require("../middlewares/oauth");
+const { login, register, authenticateUser } = require("../middlewares/auth/auth");
+const { googleAuth, getURL } = require("../middlewares/auth/oauth");
 
 // Get requests
 

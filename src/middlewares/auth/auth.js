@@ -1,5 +1,5 @@
 // Description : This file contains the middleware function for authentication system
-const User = require("../models/users");
+const User = require("../../models/users");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
@@ -7,15 +7,15 @@ const bcrypt = require("bcrypt");
 const login = async (req, res) => {
     console.log(req.body);
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
         // Validate the user data
-        if (!username || !password) {
+        if (!email || !password) {
             return res.status(400).json({ message: "Bad request" });
         }
 
         // Check if the user exists
-        const user = await User.findOne({ username: username });
+        const user = await User.findOne({ username: email });
         // If user does not exist
         if (!user) {
             return res.status(400).json({ message: "User does not exist" });
@@ -39,15 +39,15 @@ const login = async (req, res) => {
 const register = async (req, res) => {
     console.log(req.body);
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
 
         // Validate the user data
-        if (!username || !password) {
+        if (!email || !password) {
             return res.status(400).json({ message: "Bad request" });
         }
 
         // Check if the user already exists
-        if (await User.findOne({ username: username })) {
+        if (await User.findOne({ username: email })) {
             return res.status(400).json({ message: "Username already exists" });
         }
 

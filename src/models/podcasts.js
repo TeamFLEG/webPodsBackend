@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const podcastSchema = new mongoose.Schema({
     title: {
@@ -12,10 +12,10 @@ const podcastSchema = new mongoose.Schema({
         required: true
     },
     speaker: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
     likes: Number,
 });
 
-export default mongoose.model("Podcast", podcastSchema);
+module.exports = mongoose.model("Podcast", podcastSchema);

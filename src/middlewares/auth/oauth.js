@@ -1,6 +1,6 @@
-const User = require("../models/users.js");
-const getGoogleUser = require("../helpers/getGoogleUser.js");
-const getGoogleAuthURL = require("../helpers/getGoogleAuthURL.js");
+const User = require("../../models/users");
+const getGoogleUser = require("../../helpers/getGoogleUser.js");
+const getGoogleAuthURL = require("../../helpers/getGoogleAuthURL.js");
 
 const googleAuth = async (req, res) => {
     const googleUser = await getGoogleUser({ code: req.body.code });

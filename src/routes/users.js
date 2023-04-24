@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { addData } = require("../middlewares/users");
+const { addData } = require("../middlewares/users/users");
 // TODO: Add the routes for the user management system
 
 router.get("/", (req, res) => {

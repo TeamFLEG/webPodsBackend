@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    podcasts: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Podcast'
+    }]
 });
 
 module.exports = mongoose.model('User', userSchema);
